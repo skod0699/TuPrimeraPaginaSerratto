@@ -1,0 +1,12 @@
+{% extends 'padre.html' %}
+{% block title %}Cursos Disponibles{% endblock %}
+{% block content %}
+<h2>Lista de Cursos</h2>
+<ul>
+    {% for curso in cursos %}
+        <li>{{ curso.nombre }} - {{ curso.descripcion }} ({{ curso.duracion_en_semanas }} semanas)</li>
+    {% empty %}
+        <li>No hay cursos disponibles.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

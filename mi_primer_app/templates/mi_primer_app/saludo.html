@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primera Página Django</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+        }
+
+        a.btn {
+            display: inline-block;
+            padding: 14px 28px;
+            font-size: 1.1rem;
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        a.btn:hover {
+            background-color: #16a085;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Bienvenido a mi primera página con Django!</h1>
+    <p>Pulsa el siguiente botón para entrar al panel de administración.</p>
+    <a href="/admin/" class="btn">Entrar al Panel de Administración</a>
+
+    <footer>
+        Proyecto Django - &copy; {{ year }}
+    </footer>
+</body>
+</html>

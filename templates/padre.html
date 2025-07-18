@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Mi Proyecto Django{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <style>
+        /* Reset básico */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.5;
+        }
+        header {
+            background-color: #1abc9c;
+            padding: 1rem 2rem;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        nav {
+            background: #16a085;
+            padding: 0.75rem 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+            user-select: none;
+        }
+        nav a:focus, nav a:hover {
+            background-color: #117a65;
+            outline: none;
+        }
+        main {
+            flex-grow: 1;
+            padding: 2rem;
+            max-width: 900px;
+            margin: 1.5rem auto 2rem auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            min-height: 60vh;
+        }
+        footer {
+            background-color: #1abc9c;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: #ddd;
+            margin-top: auto;
+        }
+        button, input[type="submit"] {
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        button:hover, button:focus,
+        input[type="submit"]:hover, input[type="submit"]:focus {
+            background-color: #16a085;
+            outline: none;
+        }
+        /* Formularios */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        input, textarea, select {
+            padding: 0.5rem;
+            border-radius: 6px;
+            border: none;
+            font-size: 1rem;
+        }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+<header role="banner" tabindex="0">
+    Mi Proyecto Django
+</header>
+
+<nav role="navigation" aria-label="Menú principal">
+    <a href="{% url 'inicio' %}">Inicio</a>
+    <a href="{% url 'crear_curso' %}">Crear Curso</a>
+    <a href="{% url 'crear_profesor' %}">Crear Profesor</a>
+    <a href="{% url 'crear_estudiante' %}">Crear Estudiante</a>
+    <a href="/admin/">Panel Admin</a>
+    <a href="{% url 'buscar_estudiantes' %}">Buscar Estudiantes</a>
+</nav>
+
+<main role="main" tabindex="0">
+    {% block content %}
+    <!-- Contenido de cada página aquí -->
+    {% endblock %}
+</main>
+
+<footer role="contentinfo">
+    &copy; {{ year|default:"2025" }} - Proyecto Django - Matías Serratto
+</footer>
+
+</body>
+</html>

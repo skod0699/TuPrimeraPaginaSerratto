@@ -1,0 +1,29 @@
+{% extends "mi_primer_app/base.html" %}
+
+{% block title %}Lista de Estudiantes{% endblock %}
+
+{% block content %}
+  <h2>Lista de Estudiantes y Cursos Inscritos</h2>
+
+  {% if estudiantes %}
+    <ul>
+      {% for estudiante in estudiantes %}
+        <li>
+          {{ estudiante.nombre }} {{ estudiante.apellido }}
+          <ul>
+            {% if estudiante.cursos.all %}
+              {% for curso in estudiante.cursos.all %}
+                <li>{{ curso.nombre }}</li>
+              {% endfor %}
+            {% else %}
+              <li><em>Sin cursos inscritos</em></li>
+            {% endif %}
+          </ul>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No hay estudiantes cargados.</p>
+  {% endif %}
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "mi_primer_app/base.html" %}
+
+{% block title %}Buscar Estudiantes{% endblock %}
+
+{% block content %}
+  <h2>Buscar Estudiantes</h2>
+
+  <form method="get" action="{% url 'buscar_estudiantes' %}">
+    <input type="text" name="q" placeholder="Buscar por nombre o apellido" value="{{ query }}">
+    <button type="submit">Buscar</button>
+  </form>
+
+  <hr>
+
+  {% if estudiantes %}
+    <h3>Resultados:</h3>
+    <ul>
+      {% for estudiante in estudiantes %}
+        <li>{{ estudiante.nombre }} {{ estudiante.apellido }} - {{ estudiante.email }}</li>
+      {% endfor %}
+    </ul>
+  {% elif query %}
+    <p>No se encontraron resultados para "{{ query }}".</p>
+  {% endif %}
+{% endblock %}
